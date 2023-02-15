@@ -3,6 +3,8 @@ from pico_i2c_lcd import I2cLcd
 import onewire
 from time import sleep
 from ds18x20 import DS18X20
+from machine import Pin, Timer, I2C
+import utime
 
 import binascii
 Q = 0
@@ -31,7 +33,7 @@ def freq(timer):# temporizador
     frec = np  #   z
     z = frec / 7.5 # formula del flujo
     Q += z/60
-    print ("litros consumidos: {int(Q)}")
+    print ("litros consumidos:",str(int(Q)))
     lcd.clear()
     lcd.move_to(0,0)
     lcd.putstr("CAUDALIMETRO")
